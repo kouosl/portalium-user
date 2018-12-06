@@ -47,10 +47,6 @@ class Module extends \kouosl\base\Module
                     '{id}' => '<id:\\w+>'
                 ],
             ],
-
         ] ;
-
     }
-
-
 }
