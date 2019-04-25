@@ -9,19 +9,15 @@ use yii\filters\auth\HttpBearerAuth;
 use yii\filters\auth\QueryParamAuth;
 use yii\web\HttpException;
 
-class Module extends \kouosl\base\Module
-{
+class Module extends \kouosl\base\Module{
     public $controllerNamespace = '';
 
-    public function init()
-    {
+    public function init(){
         parent::init();
-
-        // custom initialization code goes here
+        $this->registerTranslations();
     }
 
-    public function behaviors()
-    {
+    public function behaviors(){
         $behaviors = parent::behaviors();
         switch ($this->namespace) {
             case 'backend': {
@@ -33,7 +29,6 @@ class Module extends \kouosl\base\Module
             };
                 break;
             case 'api': {
-
                 $behaviors['authenticator'] = [
                     'class' => CompositeAuth::className(),
                     'authMethods' => [
@@ -53,13 +48,10 @@ class Module extends \kouosl\base\Module
             };
                 break;
         }
-
         return $behaviors;
-
     }
 
-    public function registerTranslations()
-    {
+    public function registerTranslations(){
         Yii::$app->i18n->translations['user/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
@@ -70,13 +62,11 @@ class Module extends \kouosl\base\Module
         ];
     }
 
-    public static function t($category, $message, $params = [], $language = null)
-    {
+    public static function t($category, $message, $params = [], $language = null){
         return Yii::t('user/' . $category, $message, $params, $language);
     }
 
     public static function initRules(){
-        
         return $rules = [
             [
                 'class' => 'yii\rest\UrlRule',
@@ -86,14 +76,7 @@ class Module extends \kouosl\base\Module
                 'tokens' => [
                     '{id}' => '<id:\\w+>'
                 ],
-                /*'patterns' => [
-                    'GET new-action' => 'new-action'
-                ]*/
             ],
-
         ] ;
-
     }
-
-
 }
