@@ -1,15 +1,11 @@
 <?php
 
-namespace kouosl\user;
+namespace portalium\user;
 
 use Yii;
-use yii\filters\auth\CompositeAuth;
-use yii\filters\auth\HttpBasicAuth;
-use yii\filters\auth\HttpBearerAuth;
-use yii\filters\auth\QueryParamAuth;
-use yii\web\HttpException;
 
-class Module extends \kouosl\base\Module{
+final class Module extends \portalium\base\Module 
+{
     public $controllerNamespace = '';
 
     public function init(){
