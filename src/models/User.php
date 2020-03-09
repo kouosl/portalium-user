@@ -1,5 +1,5 @@
 <?php
-namespace kouosl\user\models;
+namespace portalium\user\models;
 
 use Yii;
 use yii\base\NotSupportedException;

@@ -1,23 +1,23 @@
 <?php
+namespace portalium\user\controllers\api;
 
-namespace kouosl\user\controllers\api;
-
-use kouosl\user\models\User;
-use kouosl\site\models\SignupForm;
 use Yii;
+use portalium\user\models\User;
+use portalium\site\models\SignupForm;
+use portalium\rest\Controller as RestController;
 
-class UsersController extends DefaultController {
+class UsersController extends RestController {
 	
-	public $modelClass = 'kouosl\user\models\User';
+	public $modelClass = 'portalium\user\models\User';
 
-	public function actions() {
+	public function actions()
+    {
 		$actions = parent::actions ();
-	
 		return $actions;
 	}
 	
-	public function actionView($id){
-
+	public function actionView($id)
+    {
 		$model = User::findOne($id);
 		
 		if(!$model)
@@ -26,12 +26,13 @@ class UsersController extends DefaultController {
 		return $model;
 	}
 	
-	public function actionIndex(){
+	public function actionIndex()
+    {
 		return User::find()->all();
 	}
 	
-	public function actionCreate(){
-
+	public function actionCreate()
+    {
         $postParams = json_decode(Yii::$app->request->getRawBody(), true);        
         $model = new SignupForm();
 
@@ -44,12 +45,10 @@ class UsersController extends DefaultController {
         }
 	}
 	
-	public function actionUpdate($id){
-
+	public function actionUpdate($id)
+    {
 		$postParams = json_decode(Yii::$app->request->getRawBody(), true);
-		
 		$model = User::findOne($id);
-
 		if($model = $this->LoadModel($model, $postParams)){
 				if($model->save())
 					return $model;
@@ -59,8 +58,8 @@ class UsersController extends DefaultController {
 		    return ['status' => 100];
 	}
 	
-	public function actionDelete($id){
-		
+	public function actionDelete($id)
+    {
 		if(User::findOne($id)->delete())
 			return ['status' => 1];
 		else

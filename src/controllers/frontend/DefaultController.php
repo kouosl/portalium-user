@@ -1,11 +1,12 @@
 <?php
+namespace portalium\user\controllers\frontend;
 
-namespace kouosl\user\controllers\backend;
+use portalium\web\Controller as WebController;
 
-class DefaultController extends \kouosl\base\controllers\backend\BaseController
+class DefaultController extends WebController
 {
     public function actionIndex()
     {
-        return $this->render('_index');
+        return $this->render('index');
     }
 }
