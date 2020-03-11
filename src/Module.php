@@ -7,7 +7,7 @@ class Module extends \portalium\base\Module
 {
     public static function moduleInit()
     {
-        self::registerTranslation('user/*','@user/messages',[
+        self::registerTranslation('user','@portalium/user/messages',[
             'user/user' => 'user.php',
         ]);
     }
