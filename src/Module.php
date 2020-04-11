@@ -1,4 +1,5 @@
 <?php
+
 namespace portalium\user;
 
 use Yii;
@@ -8,7 +9,7 @@ class Module extends \portalium\base\Module
     public static function moduleInit()
     {
         self::registerTranslation('user','@portalium/user/messages',[
-            'user/user' => 'user.php',
+            'user' => 'user.php',
         ]);
     }
 
