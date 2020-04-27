@@ -9,10 +9,7 @@ class Module extends \portalium\base\Module
             'class' => 'yii\rest\UrlRule',
             'controller' => [
                 'user/users',
-            ],
-            'tokens' => [
-                '{id}' => '<id:\\w+>'
-            ],
+            ]
         ],
     ];
     

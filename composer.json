@@ -12,7 +12,7 @@
 		}
 	],
 	"support" : {
-		"issues" : "https://github.com/portalium/portalium-site/issues"
+		"issues" : "https://github.com/portalium/portalium-user/issues"
 	},
 	"autoload" : {
 		"psr-4" : {
