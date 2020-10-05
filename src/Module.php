@@ -22,6 +22,6 @@ class Module extends \portalium\base\Module
 
     public static function t($message, array $params = [])
     {
-        return parent::t('user', $message, $params);
+        return parent::coreT('user', $message, $params);
     }
 }
